@@ -1,10 +1,15 @@
 import { HeaderSection } from "./HeaderSection";
 import { AccountContentSection } from "./AccountContentSection";
-// import { useEffect, useState } from "react";
-import { useDataFetcher } from "../hooks/useDataFetcher";
+import { useContext, useEffect } from "react";
+import { AccountContext } from "../context/AccountContext";
+import { fetchAccounts } from "../context/accountActions";
 
 export const AppLayout = () => {
-  const { data, isLoading, error } = useDataFetcher("./api.json");
+  const { dispatch, state } = useContext(AccountContext);
+
+  useEffect(() => {
+    fetchAccounts(dispatch);
+  }, [dispatch]);
 
   return (
     <main className="app-layout">

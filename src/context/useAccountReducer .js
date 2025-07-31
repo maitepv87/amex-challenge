@@ -23,12 +23,8 @@ const reducer = (state, action) => {
   }
 };
 
-export const useGlobalAccountReducer = () => {
+export const useAccountReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  //   const handleComplete = (todo) => {
-  //     dispatch({ type: "COMPLETE", id: todo.id });
-  //   };
 
   return { state, dispatch };
 };

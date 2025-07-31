@@ -1,11 +1,11 @@
 import { AppLayout } from "./components/AppLayout";
-import { GlobalAccountProvider } from "./context/GlobalAccountContext.jsx";
+import { AccountProvider } from "./context/AccountContext.jsx";
 
 function App() {
   return (
-    <GlobalAccountProvider>
+    <AccountProvider>
       <AppLayout />
-    </GlobalAccountProvider>
+    </AccountProvider>
   );
 }
 
