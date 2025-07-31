@@ -1,0 +1,42 @@
+{
+  "accounts": [
+    {
+      "id": "123",
+      "accountNumber": "12345678",
+      "availableBalanceInCents": "10502",
+      "transactions": [
+        {
+          "id": "1",
+          "transactionDate": "03/04/2020",
+          "name": "ABC Supplier",
+          "amountInCents": "38740"
+        },
+        {
+          "id": "2",
+          "transactionDate": "03/05/2020",
+          "name": "CDE Airlines",
+          "amountInCents": "76309"
+        }
+      ]
+    },
+    {
+      "id": "3556",
+      "accountNumber": "88730003",
+      "availableBalanceInCents": "873220",
+      "transactions": [
+        {
+          "id": "1",
+          "transactionDate": "03/06/2020",
+          "name": "ABC Supplier",
+          "amountInCents": "4676"
+        },
+        {
+          "id": "2",
+          "transactionDate": "03/05/2020",
+          "name": "ZYZ Web Services",
+          "amountInCents": "9844"
+        }
+      ]
+    }
+  ]
+}
