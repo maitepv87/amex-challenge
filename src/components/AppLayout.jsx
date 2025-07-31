@@ -1,8 +1,7 @@
+import { useContext, useEffect } from "react";
+import { AccountContext, fetchAccounts } from "../context";
 import { HeaderSection } from "./HeaderSection";
 import { AccountContentSection } from "./AccountContentSection";
-import { useContext, useEffect } from "react";
-import { AccountContext } from "../context/AccountContext";
-import { fetchAccounts } from "../context/accountActions";
 
 export const AppLayout = () => {
   const { dispatch, state } = useContext(AccountContext);

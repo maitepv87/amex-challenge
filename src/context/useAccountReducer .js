@@ -1,13 +1,12 @@
 import { useReducer } from "react";
 
-// Define initial state
 const initialState = {
   data: [],
   isLoading: true,
   error: null,
+  activeAccount: null,
 };
 
-// Define reducer function
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_SUCCESS":
@@ -18,6 +17,15 @@ const reducer = (state, action) => {
 
     case "LOADING":
       return { ...state, isLoading: true };
+
+    case "SET_ACTIVE_ACCOUNT":
+      return {
+        ...state,
+        activeAccount: action.payload,
+        isLoading: false,
+        error: null,
+      };
+
     default:
       return state;
   }

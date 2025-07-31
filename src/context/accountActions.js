@@ -10,3 +10,12 @@ export const fetchAccounts = async (dispatch) => {
     dispatch({ type: "FETCH_ERROR", payload: error.message });
   }
 };
+
+export const activeAccount = async (dispatch, account) => {
+  dispatch({ type: "LOADING" });
+  try {
+    dispatch({ type: "SET_ACTIVE_ACCOUNT", payload: account });
+  } catch (error) {
+    dispatch({ type: "FETCH_ERROR", payload: error.message });
+  }
+};
