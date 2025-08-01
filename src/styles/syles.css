@@ -1,0 +1,31 @@
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b9d2eb;
+    border-bottom: 1px solid var(--color-divider);
+    padding: 6px 8px;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 16px;
+    background-color: #EDEFEE;
+}
+
+.account-summary-card {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+}

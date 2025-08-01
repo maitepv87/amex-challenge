@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { AccountContext, setActiveAccount } from "../../context";
+import { AccountContext, setActiveAccount } from "../context";
 
 export const SidebarAccountSelector = () => {
   const { dispatch, state } = useContext(AccountContext);

@@ -1,7 +1,9 @@
+import "../styles/syles.css";
 import { useContext, useEffect } from "react";
 import { AccountContext, fetchAccounts } from "../context";
-import { HeaderSection } from "./HeaderSection";
-import { AccountContentSection } from "./AccountContentSection";
+import { Header } from "./Header";
+import { MainContent } from "./MainContent";
+import { AccountSummaryPage } from "../pages/AccountSummaryPage";
 
 export const AppLayout = () => {
   const { dispatch } = useContext(AccountContext);
@@ -11,13 +13,11 @@ export const AppLayout = () => {
   }, [dispatch]);
 
   return (
-    <main className="app-layout">
-      <section className="header-section">
-        <HeaderSection />
-      </section>
-      <section className="account-content-section">
-        <AccountContentSection />
-      </section>
-    </main>
+    <div className="app-layout">
+      <Header />
+      <MainContent>
+        <AccountSummaryPage />
+      </MainContent>
+    </div>
   );
 };
