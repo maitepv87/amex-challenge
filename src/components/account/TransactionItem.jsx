@@ -1,9 +1,9 @@
-export const TransactionItem = () => {
+export const TransactionItem = ({ name, transactionDate, amountInCents }) => {
   return (
     <div className="transaction-item">
-      <p>Transaction Date</p>
-      <p>Name</p>
-      <p>Amount In Cents</p>
+      <p>{transactionDate}</p>
+      <p>{name}</p>
+      <p>{amountInCents}</p>
     </div>
   );
 };

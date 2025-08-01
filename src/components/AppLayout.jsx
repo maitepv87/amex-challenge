@@ -4,7 +4,7 @@ import { HeaderSection } from "./HeaderSection";
 import { AccountContentSection } from "./AccountContentSection";
 
 export const AppLayout = () => {
-  const { dispatch, state } = useContext(AccountContext);
+  const { dispatch } = useContext(AccountContext);
 
   useEffect(() => {
     fetchAccounts(dispatch);

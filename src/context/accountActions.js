@@ -5,13 +5,13 @@ export const fetchAccounts = async (dispatch) => {
     const response = await fetch("./api.json");
     const { accounts } = await response.json();
 
-    dispatch({ type: "FETCH_SUCCESS", payload: accounts });
+    dispatch({ type: "FETCH_ACCOUNTS_SUCCESS", payload: accounts });
   } catch (error) {
     dispatch({ type: "FETCH_ERROR", payload: error.message });
   }
 };
 
-export const activeAccount = async (dispatch, account) => {
+export const setActiveAccount = async (dispatch, account) => {
   dispatch({ type: "LOADING" });
   try {
     dispatch({ type: "SET_ACTIVE_ACCOUNT", payload: account });

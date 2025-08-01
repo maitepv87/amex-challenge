@@ -4,12 +4,12 @@ const initialState = {
   data: [],
   isLoading: true,
   error: null,
-  activeAccount: null,
+  activeAccount: {},
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_SUCCESS":
+    case "FETCH_ACCOUNTS_SUCCESS":
       return { ...state, data: action.payload, isLoading: false, error: null };
 
     case "FETCH_ERROR":
