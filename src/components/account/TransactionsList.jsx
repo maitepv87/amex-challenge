@@ -1,7 +1,6 @@
 import { TransactionItem } from "./TransactionItem";
 
 export const TransactionsList = ({ transactions }) => {
-  console.log("transactions", transactions);
   return (
     <div className="transactions-list">
       <h2>Transactions</h2>

@@ -6,14 +6,31 @@ export const AccountSummaryPage = () => {
   const { state } = useContext(AccountContext);
   const activeAccount = state.activeAccount;
 
-  console.log(activeAccount);
+  const isActiveAccountValid =
+    activeAccount &&
+    Object.keys(activeAccount).length > 0 &&
+    typeof activeAccount.accountNumber === "string";
+
+  if (!isActiveAccountValid) {
+    return (
+      <section className="account-summary-page">
+        <p className="empty-account-message">
+          Please select an account to view details.
+        </p>
+      </section>
+    );
+  }
+
+  const hasTransactions =
+    Array.isArray(activeAccount.transactions) &&
+    activeAccount.transactions.length > 0;
+
   return (
     <section className="account-summary-page">
-      {activeAccount && <AccountSummaryCard account={activeAccount} />}
-      {activeAccount && activeAccount.transactions ? (
+      <AccountSummaryCard account={activeAccount} />
+
+      {hasTransactions && (
         <TransactionsList transactions={activeAccount.transactions} />
-      ) : (
-        <p>No T</p>
       )}
     </section>
   );
