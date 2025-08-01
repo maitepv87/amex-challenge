@@ -9,7 +9,6 @@ export const AccountSummaryPage = () => {
   console.log(activeAccount);
   return (
     <section className="account-summary-page">
-      <h2>Account Summary</h2>
       {activeAccount && <AccountSummaryCard account={activeAccount} />}
       {activeAccount && activeAccount.transactions ? (
         <TransactionsList transactions={activeAccount.transactions} />

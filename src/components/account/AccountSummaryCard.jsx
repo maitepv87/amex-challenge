@@ -1,8 +1,11 @@
+import { formatAmountInDollars } from "../../utils/formatAmountInDollars";
+
 export const AccountSummaryCard = ({ account }) => {
   return (
     <div className="account-summary-card">
-      <p>Account Number - {account.accountNumber}</p>
-      <p>Available Balance - {account.availableBalanceInCents}</p>
+      <h2>Account Summary</h2>
+      <h4>Available Balance</h4>
+      <p>{formatAmountInDollars(account.availableBalanceInCents)}</p>
     </div>
   );
 };
