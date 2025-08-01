@@ -10,39 +10,105 @@ export const SidebarAccountSelector = () => {
     setIsOpen(false);
   };
 
-  // const activeText = state.activeAccount
-  //   ? `Account - ${state.activeAccount.accountNumber.slice(-4)}`
-  //   : "Select account";
+  const activeText = state.activeAccount?.accountNumber
+    ? `Account - ${state.activeAccount.accountNumber.slice(-4)}`
+    : "Select account";
 
   return (
-    <aside className="sidebar-account-selector">
+    <aside
+      className="sidebar-account-selector"
+      aria-label="Account selector"
+      role="complementary"
+    >
       <button
         className="toggle-menu-button"
         aria-expanded={isOpen}
         aria-controls="account-list"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        ☰ {isOpen ? "Select account" : state.activeAccount.accountNumber}
+        ☰ {activeText}
       </button>
 
       {isOpen && (
-        <ul id="account-list">
+        <ul
+          id="account-list"
+          role="listbox"
+          className="account-list"
+          aria-label="Available accounts"
+        >
           {state.data.length === 0 ? (
-            <p className="empty-state">No accounts available</p>
+            <li className="empty-state" role="option">
+              No accounts available
+            </li>
           ) : (
-            <ul id="account-list">
-              {state.data.map((account) => (
-                <li
-                  key={account.id}
-                  onClick={() => handleAccountSelection(account)}
-                >
-                  Account - {account.accountNumber.slice(-4)}
-                </li>
-              ))}
-            </ul>
+            state.data.map((account) => (
+              <li
+                key={account.id}
+                role="option"
+                tabIndex={0}
+                onClick={() => handleAccountSelection(account)}
+                onKeyDown={(e) =>
+                  e.key === "Enter" && handleAccountSelection(account)
+                }
+                className={
+                  account.id === state.activeAccount?.id ? "selected" : ""
+                }
+              >
+                Account - {account.accountNumber.slice(-4)}
+              </li>
+            ))
           )}
         </ul>
       )}
     </aside>
   );
 };
+
+// import { useContext, useState } from "react";
+// import { AccountContext, setActiveAccount } from "../context";
+
+// export const SidebarAccountSelector = () => {
+//   const { dispatch, state } = useContext(AccountContext);
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   const handleAccountSelection = (account) => {
+//     setActiveAccount(dispatch, account);
+//     setIsOpen(false);
+//   };
+
+//   // const activeText = state.activeAccount
+//   //   ? `Account - ${state.activeAccount.accountNumber.slice(-4)}`
+//   //   : "Select account";
+
+//   return (
+//     <aside className="sidebar-account-selector">
+//       <button
+//         className="toggle-menu-button"
+//         aria-expanded={isOpen}
+//         aria-controls="account-list"
+//         onClick={() => setIsOpen((prev) => !prev)}
+//       >
+//         ☰ {isOpen ? "Select account" : state.activeAccount.accountNumber}
+//       </button>
+
+//       {isOpen && (
+//         <ul id="account-list">
+//           {state.data.length === 0 ? (
+//             <p className="empty-state">No accounts available</p>
+//           ) : (
+//             <ul id="account-list">
+//               {state.data.map((account) => (
+//                 <li
+//                   key={account.id}
+//                   onClick={() => handleAccountSelection(account)}
+//                 >
+//                   Account - {account.accountNumber.slice(-4)}
+//                 </li>
+//               ))}
+//             </ul>
+//           )}
+//         </ul>
+//       )}
+//     </aside>
+//   );
+// };
