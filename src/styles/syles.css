@@ -107,3 +107,43 @@
     font-size: 0.75rem;
     color: var(--color-secondary);
 }
+
+
+
+.dropdown {
+    position: relative;
+    width: 200px;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #edefee;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-list li {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.dropdown-list li:hover,
+.dropdown-list li[aria-selected="true"] {
+    background-color: #2c4766;
+    color: white;
+}
